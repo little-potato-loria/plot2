@@ -287,17 +287,17 @@ int main(int argc, char** argv) {
     BDF2(f, df);
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-
-    initwin1();
+    
     int window1 = glutCreateWindow("P");
+    initwin1();
     glutDisplayFunc(display1);
-
-    initwin2();
+    
     int window2 = glutCreateWindow("roup");
+    initwin2();
     glutDisplayFunc(display2);
-
-    initwin3();
+    
     int window3 = glutCreateWindow("T");
+    initwin3();
     glutDisplayFunc(display3);
     glutMainLoop();
     return 0;
