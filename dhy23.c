@@ -40,6 +40,19 @@ void addNode(LinkedList* list, float x, float y) {
         list->tail = newNode;
     }
 }
+void freeList(LinkedList* list) {
+    Node* current = list->head;
+    Node* next;
+
+    while (current != NULL) {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+
+    list->head = NULL;
+    list->tail = NULL;
+}
 double newton(double (*f)(double, double), double (*df)(double, double), double t, double y, double h, double y_prev, double tol) {
     double y_next = y;
     double y_next_old;
@@ -300,5 +313,6 @@ int main(int argc, char** argv) {
     initwin3();
     glutDisplayFunc(display3);
     glutMainLoop();
+    freeList(&data);
     return 0;
 }
